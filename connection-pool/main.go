@@ -41,8 +41,10 @@ func (pool *ConnPool) Get() (interface{}, error) {
 	}
 }
 
-// Put 将连接放回连接池中
+// Put 将连接放回连接池中(就是释放连接)
 func (pool *ConnPool) Put(conn interface{}) {
+	// 思考这里真的要加锁么？如果ConnPool没有记录当前的连接数,则这里是不用加锁的
+	// 因为channel本身就是线程安全的
 	pool.mu.Lock()
 	defer pool.mu.Unlock()
 	select {
