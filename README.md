@@ -12,6 +12,8 @@ Go_IMS_System 是用Go实现的客户端和服务端及时通讯系统
 
 Go-Context 是Go中的Context在HTTP服务中的一个典型应用场景(这个例子·来自Youtube的JustForFunc)
 
+conection-pool 是用Go实现的连接数据库的一个连接池的实现
+
 
 
 
