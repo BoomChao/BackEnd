@@ -13,7 +13,7 @@ import (
 type ConnPool struct {
 	connections chan interface{}   // 连接池中的连接
 	factory     func() interface{} // 创建连接的函数
-	mu          sync.Mutex         // 互斥锁
+	mu          sync.Mutex         // 互斥锁此(保证多个 goroutine 同时操作连接池的安全性)
 }
 
 // NewConnPool 创建一个新的连接池
